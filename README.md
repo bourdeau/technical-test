@@ -1,3 +1,28 @@
+Technical Test
+----
+
+## Setup
+
+poetry install
+
+## Run
+```
+poetry run python spark/main.py --operation azd --paths "https://gist.githubusercontent.com/bourdeau/c215096bb45e1b3a4ce1a827bb091f2e/raw/037a1c1c4bb948c642027d778dfd2906c0160838/gistfile1.txt, /home/ph/www/s
+park/test-line.txt"
+```
+**Note:** change the file path in the command, this is my home
+
+## Notes
+
+- I didn't follow the exact instructions (which is not good). I considered the format could be guessed
+and that we could mix file sources (http & file) in the same command.
+- I didn't write any tests (unit, functional, etc.) because it already took me 3 hours and I'm lacking time
+- A lot of things could be done better, like removing all the static methods, using generators
+instead of lists in case of large data set, etc
+
+
+## Instructions
+```
 The goal of this exercise is to write a tool that will aggregate and transform
 data from various data sources. You are free to write this program in any
 language you like.
@@ -152,6 +177,4 @@ The SUM operation will give the follwing output:
      8 10 12
     14 16 18
 
-
-
-poetry run python spark/main.py --paths "https://gist.githubusercontent.com/bourdeau/c215096bb45e1b3a4ce1a827bb091f2e/raw/037a1c1c4bb948c642027d778dfd2906c0160838/gistfile1.txt, /home/ph/www/spark/test-table.txt"
+```
