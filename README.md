@@ -2,9 +2,9 @@ Technical Test
 ----
 
 ## Setup
-
+```
 poetry install
-
+```
 ## Run
 ```
 poetry run python spark/main.py --operation azd --paths "https://gist.githubusercontent.com/bourdeau/c215096bb45e1b3a4ce1a827bb091f2e/raw/037a1c1c4bb948c642027d778dfd2906c0160838/gistfile1.txt, /home/ph/www/s
