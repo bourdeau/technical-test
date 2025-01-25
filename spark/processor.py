@@ -26,8 +26,10 @@ class ImageProcessor:
             ImageLoader.load(image)
             ImageFormatGuesser.guess_format(image)
             ImageSerializer.format(image)
+
+            image_operation = ImageOperation(images, operation)
         
-        return ImageOperation.process(images, operation)
+        return image_operation.process()
 
     @staticmethod
     def _build_image_collection(paths: List[str]) -> List[ImageData]:
