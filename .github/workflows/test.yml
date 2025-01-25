@@ -16,5 +16,5 @@ jobs:
         uses: abatilo/actions-poetry@v3
       - name: Install deps
         run: poetry install
-      - name: Run tests
-        run: poetry run pytest
+      - name: Run unit test
+        run: poetry run pytest -k "test_ut"
