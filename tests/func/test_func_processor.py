@@ -1,9 +1,12 @@
+import os
 from spark.processor import ImageProcessor
+
+file_path = os.path.join(os.path.dirname(__file__), "samples", "test-line.txt")
 
 def test_image_processor_append():
     paths = [
         "https://gist.githubusercontent.com/bourdeau/c215096bb45e1b3a4ce1a827bb091f2e/raw/037a1c1c4bb948c642027d778dfd2906c0160838/gistfile1.txt",
-        "/home/ph/www/spark/tests/samples/test-line.txt"
+        file_path
     ]
     operation = "APPEND"
     result = ImageProcessor.run(paths, operation)
@@ -16,7 +19,7 @@ def test_image_processor_append():
 def test_image_processor_combine():
     paths = [
         "https://gist.githubusercontent.com/bourdeau/c215096bb45e1b3a4ce1a827bb091f2e/raw/037a1c1c4bb948c642027d778dfd2906c0160838/gistfile1.txt",
-        "/home/ph/www/spark/tests/samples/test-line.txt"
+        file_path
     ]
     operation = "COMBINE"
     result = ImageProcessor.run(paths, operation)
@@ -28,7 +31,7 @@ def test_image_processor_combine():
 def test_image_processor_sum():
     paths = [
         "https://gist.githubusercontent.com/bourdeau/c215096bb45e1b3a4ce1a827bb091f2e/raw/037a1c1c4bb948c642027d778dfd2906c0160838/gistfile1.txt",
-        "/home/ph/www/spark/tests/samples/test-line.txt"
+        file_path
     ]
     operation = "SUM"
     result = ImageProcessor.run(paths, operation)

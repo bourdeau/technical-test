@@ -17,6 +17,7 @@ park/test-line.txt"
 ```
 make test
 ```
+**Notes:** tests are run by Github for new PR
 
 ## Notes
 
