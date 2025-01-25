@@ -30,19 +30,58 @@ class ImageOperation:
             return self._sum(self.images)
         
     def _append(self, images: List[ImageData]) -> List[List[int]]:
+        """
+        Append the images by stacking their rows
+
+        Example:
+        Image 1: [[1, 2], [3, 4]]
+        Image 2: [[5, 6], [7, 8]]
+        Result: [[1, 2], [3, 4], [5, 6], [7, 8]]
+        """
         return [row for image in images for row in image.data]
     
     def _combine(self, images: List[ImageData]) -> List[List[int]]:
-        return [
-            [value for image in images for value in image.data[row_idx]]
-            for row_idx in range(self.nb_rows)
-        ]
+        """
+        Combine the images by stacking their columns
+
+        Example:
+        Image 1: [[1, 2], [3, 4]]
+        Image 2: [[5, 6], [7, 8]]
+        Result: [[1, 2, 5, 6], [3, 4, 7, 8]]
+        """
+        result = []
+
+        for row_idx in range(self.nb_rows):
+            row = []
+
+            for image in images:
+                for value in image.data[row_idx]:
+                    row.append(value)
+
+            result.append(row)
+
+        return result
     
     def _sum(self, images: List[ImageData]) -> List[List[int]]:
         """
-        Note: this comprehension list is not very comprehensible which is sad.
+        Sum the images by adding their columns
+
+        Example:
+        Image 1: [[1, 2], [3, 4]]
+        Image 2: [[5, 6], [7, 8]]
+        Result: [[6, 8], [10, 12]]
         """
-        return [
-            [sum(image.data[row_idx][col_idx] for image in images) for col_idx in range(len(images[0].data[0]))]
-            for row_idx in range(self.nb_rows)
-        ]
+        result = []
+
+        for row_idx in range(self.nb_rows):
+            result.append([])
+            
+            for col_idx in range(len(images[0].data[0])):
+                column_sum = 0
+
+                for image in images:
+                    column_sum += image.data[row_idx][col_idx]
+
+                result[row_idx].append(column_sum)
+
+        return result
